@@ -1,30 +1,29 @@
 import React,{ useState,useEffect } from "react";
+import './gallery.css';
+import image1 from './images/blog-img4.jpg'
+
 
 function Gallery() {
- 
-
   
-
-  function imageSlide(nameofButton){
-    setimageIndex(preValue => preValue +=3)    
-    setimageIndexTwo(preValueOne => preValueOne +=3)
-    if (imageIndex === 0 && imageIndexTwo === 3)
-    {
-        findImages()
-    }
-
-  }
- 
   return (
     <>
-    {
-        imageToDisplay.map(imageList =>(
-            <div>
-                {imageList}
-            </div>
-        ))
-    }
-    <button onClick={()=>imageSlide('button1')} >1</button>
+     <div className="container">
+        <h1>School gallery </h1>
+        <div className="page-row">
+          <div className="gallery_image_rowone">
+            <img src={image1} alt="" />
+          </div>
+          <div className="gallery_image_rowtwo">
+             <div className="row_text_one">
+                <img src={image1} alt="" />
+                <img src={image1} alt="" />
+             </div>
+             <div className="row_text_two">
+                <img src={image1} alt="" />
+             </div>
+          </div>
+        </div>
+     </div>
     </>
     
   )
