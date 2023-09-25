@@ -86,7 +86,16 @@ const ApsCalculator = () => {
     };
   
     function sumOfLevel(){
-      
+      const selectedMarksValues = Object.values(selectedLevels);
+      const validMarks = selectedMarksValues.filter(
+        (mark) => mark !== defaultLevel
+      );
+      const sum = validMarks.reduce(
+        (accumulator, currentMark) =>
+          accumulator + parseInt(currentMark),
+        0
+      );
+      setTotal(sum)
 
     };
   
