@@ -170,9 +170,9 @@ const ApsCalculator = () => {
           </tbody>
         </table>
         <div>
-          <h1>Marks Obtained</h1>
+          <h1>RESULTS</h1>
   
-  
+          {total}
         </div>
         <button onClick={calculateApsScore} >result</button>
       </div>
