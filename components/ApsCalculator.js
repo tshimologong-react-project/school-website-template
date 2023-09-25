@@ -53,9 +53,11 @@ const ApsCalculator = () => {
       const updatedSubjects = { ...selectedSubjects };
       setSelectedSubjects(updatedSubjects);
   
+      
       updatedSubjects[subject] = Object.values(selectedSubjects).includes(selectedSubject)
       ? (alert(`You have already selected ${selectedSubject}`), defaultSubject)
       : selectedSubject;
+
     
     };
   
