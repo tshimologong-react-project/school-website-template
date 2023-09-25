@@ -101,7 +101,10 @@ const ApsCalculator = () => {
   
   
     const calculateApsScore = () => {
-  
+      const allSubjectsSelected = Object.values(selectedSubjects).find((unselectedSubject)=>unselectedSubject===defaultSubject);
+    const allLevesSelected = Object.values(selectedLevels).find((unselectedMarks)=>unselectedMarks===defaultLevel)
+   
+    {(allSubjectsSelected || allLevesSelected) ?  alert('field of subject or marks is required') : sumOfLevel()};
      
    
     };
@@ -116,7 +119,7 @@ const ApsCalculator = () => {
   
           <thead>
             <tr>
-              <th>Subects</th>
+              <th>Subjects</th>
               <th>Marks</th>
               <th>Level</th>
             </tr>
@@ -171,7 +174,7 @@ const ApsCalculator = () => {
   
   
         </div>
-        <button >result</button>
+        <button onClick={calculateApsScore} >result</button>
       </div>
     );
   };
