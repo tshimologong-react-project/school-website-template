@@ -53,7 +53,7 @@ const ApsCalculator = () => {
       const updatedSubjects = { ...selectedSubjects };
       setSelectedSubjects(updatedSubjects);
   
-      
+
       updatedSubjects[subject] = Object.values(selectedSubjects).includes(selectedSubject)
       ? (alert(`You have already selected ${selectedSubject}`), defaultSubject)
       : selectedSubject;
@@ -67,6 +67,21 @@ const ApsCalculator = () => {
       updatedMarks[subject] = selectedMark;
       setSelectedMarks(updatedMarks);
   
+        
+    let level = defaultLevel;
+    if (selectedMark === '0-29%') {level = '1';}
+    else if (selectedMark === '30-39%') {level = '2';}
+    else if (selectedMark === '40-40%') {level = '3';}
+    else if (selectedMark === '50-59%') {level = '4';}
+    else if (selectedMark === '60-69%') {level = '5';}
+    else if (selectedMark === '70-79%') {level = '6';}
+    else if (selectedMark === '80-100%') {level = '7';}
+
+   const updatedLevels = { ...selectedLevels };
+   updatedLevels[subject] = level;
+   setSelectedLevels(updatedLevels);
+
+
      
     };
   
