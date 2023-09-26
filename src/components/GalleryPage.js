@@ -16,8 +16,9 @@ function GalleryPage() {
 
   // buttons state
   const [buttons, setButtons] = useState([]);
-
-  // variables to determine image array length and number of images to display
+  // sliced images state
+  const [slicedImages, setSlicedImages] = useState([]);
+  // variables to determine image array length
   const imageLength = Images.length;
   // variables to determine number of images to display
   const imageNumber = Math.round(imageLength / 4);
@@ -56,6 +57,12 @@ function GalleryPage() {
     createPaginationBtns();
   }, []);
 
+  // function to slice images for for display
+  function imageSlicer(first, last) {
+    setSlicedImages(Images.slice(first, last));
+    console.log(slicedImages);
+  }
+
   // function to determine first and last values for slicer
   function imageFun(index) {
     buttonIndex = index;
@@ -64,7 +71,8 @@ function GalleryPage() {
     let n = 0;
     const first = n + 4 * k;
     const last = m + 4 * k;
-
+    // call image slicer function
+    imageSlicer(first, last);
     console.log(first, last);
   }
 
