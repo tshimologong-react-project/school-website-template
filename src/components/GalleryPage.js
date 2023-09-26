@@ -1,6 +1,7 @@
 // packages imports
 import React, { useState, useEffect } from "react";
-
+// styles imports
+import "./gallery.css";
 // components imports
 
 // images import
@@ -99,6 +100,26 @@ function GalleryPage() {
       <button onClick={() => changeIndex("next")}>next</button>
       <br />
       <br />
+      {/* images display */}
+      <>
+        <div className="container">
+          <h1>School gallery </h1>
+          <div className="page-row">
+            <div className="gallery_image_rowone">
+              <img src={slicedImages[0]} alt="" />
+            </div>
+            <div className="gallery_image_rowtwo">
+              <div className="row_text_one">
+                <img src={slicedImages[1]} alt="" />
+                <img src={slicedImages[2]} alt="" />
+              </div>
+              <div className="row_text_two">
+                <img src={slicedImages[3]} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
     </>
   );
 }
