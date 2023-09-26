@@ -13,19 +13,7 @@ import img5 from "../assets/IMG5.JPG";
 import img6 from "../assets/IMG6.JPG";
 
 function GalleryPage() {
-  /* global variables */
-
-  // buttons state
-  const [buttons, setButtons] = useState([]);
-  // sliced images state
-  const [slicedImages, setSlicedImages] = useState([]);
-  // variables to determine image array length
-  const imageLength = Images.length;
-  // variables to determine number of images to display
-  const imageNumber = Math.round(imageLength / 4);
-  console.log(imageNumber);
-  // variable to hold button index
-  let buttonIndex = [1];
+  /* Global variables */
 
   // array for images
   const Images = [
@@ -43,6 +31,18 @@ function GalleryPage() {
     img6,
     img2,
   ];
+
+  // buttons state
+  const [buttons, setButtons] = useState([]);
+  // sliced images state
+  const [slicedImages, setSlicedImages] = useState([]);
+  // variables to determine image array length
+  const imageLength = Images.length;
+  // variables to determine number of images to display
+  const imageNumber = Math.round(imageLength / 4);
+  console.log(imageNumber);
+  // variable to hold button index
+  let buttonIndex = [1];
 
   // pagination functions
   function createPaginationBtns() {
@@ -90,6 +90,28 @@ function GalleryPage() {
 
   return (
     <>
+      {/* images display */}
+
+      <div className="container">
+        <h1>School gallery </h1>
+        <div className="page-row">
+          <div className="gallery_image_rowone">
+            <img src={slicedImages[0]} alt="" />
+          </div>
+          <div className="gallery_image_rowtwo">
+            <div className="row_text_one">
+              <img src={slicedImages[1]} alt="" />
+              <img src={slicedImages[2]} alt="" />
+            </div>
+            <div className="row_text_two">
+              <img src={slicedImages[3]} alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+
       {/* buttons */}
       <button onClick={() => changeIndex("prev")}>prev</button>
       {buttons.map((button, id) => (
@@ -98,28 +120,6 @@ function GalleryPage() {
         </button>
       ))}
       <button onClick={() => changeIndex("next")}>next</button>
-      <br />
-      <br />
-      {/* images display */}
-      <>
-        <div className="container">
-          <h1>School gallery </h1>
-          <div className="page-row">
-            <div className="gallery_image_rowone">
-              <img src={slicedImages[0]} alt="" />
-            </div>
-            <div className="gallery_image_rowtwo">
-              <div className="row_text_one">
-                <img src={slicedImages[1]} alt="" />
-                <img src={slicedImages[2]} alt="" />
-              </div>
-              <div className="row_text_two">
-                <img src={slicedImages[3]} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
     </>
   );
 }
