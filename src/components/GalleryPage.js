@@ -12,8 +12,18 @@ import img5 from "../assets/IMG5.JPG";
 import img6 from "../assets/IMG6.JPG";
 
 function GalleryPage() {
+  /* global variables */
+
   // buttons state
   const [buttons, setButtons] = useState([]);
+
+  // variables to determine image array length and number of images to display
+  const imageLength = Images.length;
+  // variables to determine number of images to display
+  const imageNumber = Math.round(imageLength / 4);
+  console.log(imageNumber);
+  // variable to hold button index
+  let buttonIndex = [1];
 
   // array for images
   const Images = [
@@ -31,16 +41,6 @@ function GalleryPage() {
     img6,
     img2,
   ];
-
-  /* global variables */
-
-  // variables to determine image array length and number of images to display
-  const imageLength = Images.length;
-  // variables to determine number of images to display
-  const imageNumber = Math.round(imageLength / 4);
-  console.log(imageNumber);
-  // variable to hold button index
-  let buttonIndex = [1];
 
   // pagination functions
   function createPaginationBtns() {
