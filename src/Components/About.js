@@ -1,12 +1,12 @@
 import image1 from '../assets/IMG_8180.JPG';
-import './About.css'
+import "../styles/About.css";
 
 function App() {
   return (
     <>
     <div className="Header">
       <h1>About Us</h1>
-      <hr style={{ margin: '0 auto', width: '5vw', height: '1px', borderTop: 'maroon solid 5px', backgroundColor: "maroon"}} />
+      <hr style={{ margin: '0 autvero', width: '5vw', height: '1px', borderTop: 'maroon solid 5px', backgroundColor: "maroon"}} />
 
     </div>
    

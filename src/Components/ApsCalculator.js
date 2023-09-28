@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import '../syles/ApsCalculator.css'
-import noticeIcon from '../assets/noticeIcon.png'
+import '../styles/ApsCalculator.css'
+//import noticeIcon from '../assets/noticeIcon.png'
 const SubjectMarksTable = () => {
   const subjects = [
   
@@ -235,7 +235,6 @@ const SubjectMarksTable = () => {
             {/* Notice massege div apears only when the total value is not 0 */}
             {total !== 0 ?  (<div className='resultHolder'>
             <p>Your APS is <span>{total}</span> and you've obtained <span>{generalMsg}</span> </p>
-                <img src={noticeIcon}/>
               <p>{total !== 0 ? noticeMsg : ''}</p>
           
             </div>) :'' }

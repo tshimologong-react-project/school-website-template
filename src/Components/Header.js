@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './Header.css'; // Import your CSS file
+import '../styles/Header.css'; // Import your CSS file
 
 
 

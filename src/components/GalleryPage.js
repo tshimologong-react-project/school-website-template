@@ -1,7 +1,7 @@
 // packages imports
 import React, { useState, useEffect } from "react";
 // styles imports
-import "./gallery.css";
+import '../styles/gallery.css';
 // components imports
 
 // images import
@@ -91,35 +91,39 @@ function GalleryPage() {
   return (
     <>
       {/* images display */}
-
+      <div className="gallery-section">
       <div className="container">
-        <h1>School gallery </h1>
-        <div className="page-row">
-          <div className="gallery_image_rowone">
-            <img src={slicedImages[0]} alt="" />
-          </div>
-          <div className="gallery_image_rowtwo">
-            <div className="row_text_one">
-              <img src={slicedImages[1]} alt="" />
-              <img src={slicedImages[2]} alt="" />
+           <div className="section-title">
+              <span className="subtitle">gallery</span>
+            <h1>School gallery</h1>
             </div>
-            <div className="row_text_two">
-              <img src={slicedImages[3]} alt="" />
+            <div className="page-row">
+                  <div className="gallery_row gallery_row_one">
+                    <img src={slicedImages[0]} alt=""/>
+                    <img src={slicedImages[1]} alt=""/>
+                  </div>
+                <div className="gallery_row gallery_row_two">
+                    <img src={slicedImages[2]} alt=""/>
+                    <img src={slicedImages[3]} alt=""/>
+                </div>
+                <div className="gallery_row gallery_row_three">
+                    <img src={slicedImages[4]} alt=""/>
+                    <img src={slicedImages[5]} alt=""/>
+                </div>
             </div>
+            <div class="pagination">
+              <button onClick={() => changeIndex("prev")}>prev</button>
+              {buttons.map((button, id) => (
+                  <span key={id} onClick={() => imageFun(button)}>
+                  {button}
+                  </span>
+              ))}
+              <button onClick={() => changeIndex("next")}>last</button>
+            </div>
+            
           </div>
-        </div>
       </div>
-      <br />
-      <br />
-
-      {/* buttons */}
-      <button onClick={() => changeIndex("prev")}>prev</button>
-      {buttons.map((button, id) => (
-        <button key={id} onClick={() => imageFun(button)}>
-          {button}
-        </button>
-      ))}
-      <button onClick={() => changeIndex("next")}>next</button>
+    
     </>
   );
 }

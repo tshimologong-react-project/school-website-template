@@ -1,8 +1,8 @@
 // Header.js
 import React, { useState } from 'react';
-import './Header.css'; // Import your CSS file
-import './Hero.css';
-import './TopHeader.css';
+import '../styles/TopHeader.css'; // Import your CSS file
+import '../styles/Header.css';
+import '../styles/Hero.css';
 
 const TopHeader = () => {
 

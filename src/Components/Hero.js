@@ -1,8 +1,8 @@
 
 import React from 'react';
-import './Hero.css'; 
-import './Header.css';
-import './TopHeader.css';
+import '../styles/TopHeader.css'; // Import your CSS file
+import '../styles/Header.css';
+import '../styles/Hero.css';
 
 const Hero = () => {
   return (

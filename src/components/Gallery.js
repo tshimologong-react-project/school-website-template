@@ -1,32 +1,41 @@
 import React,{ useState,useEffect } from "react";
-import './gallery.css';
-import image1 from './images/blog-img4.jpg'
+import '../styles/gallery.css';
+import image1 from '../assets/IMG1.JPG'
+
+
 
 
 function Gallery() {
-  
+ function directPage(){
+  window.location.href ='src/components/GalleryPage.js' 
+ }
+
   return (
-    <>
-     <div className="container">
-        <h1>School gallery </h1>
-        <div className="page-row">
-          <div className="gallery_image_rowone">
-            <img src={image1} alt="" />
+    <div className="gallery-section">
+      <div className="container">
+           <div className="section-title">
+              <span className="subtitle">gallery</span>
+            <h1>School gallery</h1>
+            </div>
+            <div className="page-row">
+                  <div className="gallery_row gallery_row_one">
+                    <img src={image1} alt=""/>
+                    <img src={image1} alt=""/>
+                  </div>
+                <div className="gallery_row gallery_row_two">
+                    <img src={image1} alt=""/>
+                    <img src={image1} alt=""/>
+                </div>
+                <div className="gallery_row gallery_row_three">
+                    <img src={image1} alt=""/>
+                    <img src={image1} alt=""/>
+                </div>
+            </div>
+            <div id="gallery_btn" onClick={directPage}> more images </div>
           </div>
-          <div className="gallery_image_rowtwo">
-             <div className="row_text_one">
-                <img src={image1} alt="" />
-                <img src={image1} alt="" />
-             </div>
-             <div className="row_text_two">
-                <img src={image1} alt="" />
-             </div>
-          </div>
-        </div>
-     </div>
-    </>
+      </div>
+  );
     
-  )
 }
 
 export default Gallery
