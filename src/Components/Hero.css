@@ -14,7 +14,7 @@ section {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background-image: url(/public/Hero.JPG);
+    background-image: url('/src/assets/Hero.JPG');
     background-color: maroon;
     background-size: cover; 
     position: relative;
