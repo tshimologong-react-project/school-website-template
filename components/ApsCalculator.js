@@ -6,7 +6,7 @@ const ApsCalculator = () => {
     const marksOptions = ['0-29%', '30-39%', '40-49%','50-59%','60-69%','70-79%','80-100%'];
     const [total,setTotal] = useState(0);
   
-  
+  // comenting
     const defaultSubject = 'Choose subject';
     const defaultMark = 'Choose marks';
     const defaultLevel = '0';
