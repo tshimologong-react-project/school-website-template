@@ -1,0 +1,35 @@
+
+.Header{
+    text-align: center;
+    }
+    
+
+     hr{
+      color: rgb(80, 20, 30);
+    }
+    
+    p {
+      text-align: center;
+    }
+    
+    .parent {
+      display: flexbox;
+      justify-content: space-around;
+    }
+    
+    .card {
+      height: 250px;
+      width: 30vw;
+      background-color: rgb(18, 20, 54);
+      padding: 4px;
+    }
+    
+    .imageee {
+      height: inherit;
+      width: inherit;;
+    }
+    
+     .card h1 ,p{
+     text-align: center;
+     color: black;
+     }  
