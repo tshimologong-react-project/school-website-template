@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 const ApsCalculator = () => {
     const subjects = ['Mathematics', 'LifeScience', 'English','LifeOrientation','PhysicalScience','Geography','HomeLanguge'];
-    const marksOptions = ['0-29%', '30-39%', '40-40%','50-59%','60-69%','70-79%','80-100%'];
+    const marksOptions = ['0-29%', '30-39%', '40-49%','50-59%','60-69%','70-79%','80-100%'];
     const [total,setTotal] = useState(0);
   
   
@@ -53,9 +53,11 @@ const ApsCalculator = () => {
       const updatedSubjects = { ...selectedSubjects };
       setSelectedSubjects(updatedSubjects);
   
-     
-  
-     
+
+      updatedSubjects[subject] = Object.values(selectedSubjects).includes(selectedSubject)
+      ? (alert(`You have already selected ${selectedSubject}`), defaultSubject)
+      : selectedSubject;
+
     
     };
   
@@ -65,17 +67,44 @@ const ApsCalculator = () => {
       updatedMarks[subject] = selectedMark;
       setSelectedMarks(updatedMarks);
   
+        
+    let level = defaultLevel;
+    if (selectedMark === '0-29%') {level = '1';}
+    else if (selectedMark === '30-39%') {level = '2';}
+    else if (selectedMark === '40-40%') {level = '3';}
+    else if (selectedMark === '50-59%') {level = '4';}
+    else if (selectedMark === '60-69%') {level = '5';}
+    else if (selectedMark === '70-79%') {level = '6';}
+    else if (selectedMark === '80-100%') {level = '7';}
+
+   const updatedLevels = { ...selectedLevels };
+   updatedLevels[subject] = level;
+   setSelectedLevels(updatedLevels);
+
+
      
     };
   
     function sumOfLevel(){
-      
+      const selectedMarksValues = Object.values(selectedLevels);
+      const validMarks = selectedMarksValues.filter(
+        (mark) => mark !== defaultLevel
+      );
+      const sum = validMarks.reduce(
+        (accumulator, currentMark) =>
+          accumulator + parseInt(currentMark),
+        0
+      );
+      setTotal(sum)
 
     };
   
   
     const calculateApsScore = () => {
-  
+      const allSubjectsSelected = Object.values(selectedSubjects).find((unselectedSubject)=>unselectedSubject===defaultSubject);
+    const allLevesSelected = Object.values(selectedLevels).find((unselectedMarks)=>unselectedMarks===defaultLevel)
+   
+    {(allSubjectsSelected || allLevesSelected) ?  alert('field of subject or marks is required') : sumOfLevel()};
      
    
     };
@@ -90,7 +119,7 @@ const ApsCalculator = () => {
   
           <thead>
             <tr>
-              <th>Subects</th>
+              <th>Subjects</th>
               <th>Marks</th>
               <th>Level</th>
             </tr>
@@ -141,11 +170,11 @@ const ApsCalculator = () => {
           </tbody>
         </table>
         <div>
-          <h1>Marks Obtained</h1>
+          <h1>RESULTS</h1>
   
-  
+          {total}
         </div>
-        <button >result</button>
+        <button onClick={calculateApsScore} >result</button>
       </div>
     );
   };
