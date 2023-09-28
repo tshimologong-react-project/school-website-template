@@ -30,41 +30,43 @@ const ApsCalculator = () => {
     const [total,setTotal] = useState(0);
   
   // comenting
-    const defaultSubject = 'Choose subject';
-    const defaultMark = 'Choose marks';
-    const defaultLevel = '0';
+    
+  const defaultSubject = 'Choose subject';
+  const defaultMark = 'Choose marks';
+  const defaultLevel = '0';
+
+  const [selectedSubjects, setSelectedSubjects] = useState({
   
-    const [selectedSubjects, setSelectedSubjects] = useState({
-      Mathematics: defaultSubject,
-      LifeScience: defaultSubject,
-      English: defaultSubject,
-      LifeOrientation:defaultSubject,
-      PhysicalScience:defaultSubject,
-      Geography:defaultSubject,
-      HomeLanguge:defaultSubject
-      
-    });
-  
-    const [selectedMarks, setSelectedMarks] = useState({
-      Mathematic: defaultMark,
-      LifeScience: defaultMark,
-      English: defaultMark,
-      LifeOrientation:defaultMark,
-      PhysicalScience:defaultMark,
-      Geography:defaultMark,
-      HomeLanguge:defaultMark
-    });
-  
-  
-    const [selectedLevels, setSelectedLevels] = useState({
-      Mathematics: defaultLevel,
-      LifeScience: defaultLevel,
-      English: defaultLevel,
-      LifeOrientation:defaultLevel,
-      PhysicalScience:defaultLevel,
-      Geography:defaultLevel,
-      HomeLanguge:defaultLevel
-    });
+    HomeLanguge: defaultSubject,
+    English: defaultSubject,
+    Mathematics: defaultSubject,
+    MathematicalLit:defaultSubject,
+    PhysicalScience:defaultSubject,
+    Accounting:defaultSubject
+    
+  });
+
+  const [selectedMarks, setSelectedMarks] = useState({
+
+    HomeLanguge: defaultMark,
+    English: defaultMark,
+    Mathematics: defaultMark,
+    MathematicalLit:defaultMark,
+    PhysicalScience:defaultMark,
+    Accounting:defaultMark
+  });
+
+
+  const [selectedLevels, setSelectedLevels] = useState({
+
+    HomeLanguge: defaultLevel,
+    English: defaultLevel,
+    Mathematics: defaultLevel,
+    MathematicalLit:defaultLevel,
+    PhysicalScience:defaultLevel,
+    Accounting:defaultLevel
+  });
+
   
     
     
