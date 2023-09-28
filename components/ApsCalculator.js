@@ -2,7 +2,30 @@ import React, { useState } from 'react'
 
 
 const ApsCalculator = () => {
-    const subjects = ['Mathematics', 'LifeScience', 'English','LifeOrientation','PhysicalScience','Geography','HomeLanguge'];
+  const subjects = [
+  
+    'HomeLanguge',
+    'English',
+    'Mathematics',
+    'MathematicalLit',
+    'PhysicalScience',
+    'Accounting',
+    'LifeScience',
+    'Geography',
+    'History',
+    'Economics',
+    'BusinessStudies',
+    'Tourism',
+    'ConsumerStudies',
+    'HospitalityStudies',
+    'AgriculturalSciences',
+    'AdditionalSubject1',
+    'AdditionalSubject2',
+    'AdditionalSubject3',
+    'AdditionalSubject4'
+    // Add more subjects here as needed
+
+  ];
     const marksOptions = ['0-29%', '30-39%', '40-49%','50-59%','60-69%','70-79%','80-100%'];
     const [total,setTotal] = useState(0);
   
