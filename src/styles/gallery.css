@@ -1,0 +1,79 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800&display=swap');
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.gallery-section{
+    padding: 6rem 0;
+}
+.gallery-section .section-title{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.gallery-section .page-row{
+    display: flex;
+    height: 600px;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+.gallery_row{
+    width: 33%;
+}
+.gallery_row  img{
+    padding: 1rem;
+    border-radius: 2rem;
+}
+.gallery_row_one  img:first-child, .gallery_row_three img:first-child{
+    width: 100%;
+    height: 40%;
+}
+.gallery_row_two img:first-child{
+    width: 100%;
+    height: 60%;
+}
+.gallery_row_two img:last-child{
+    width: 100%;
+    height: 40%;
+}
+.gallery_row_one  img:last-child, .gallery_row_three  img:last-child{
+    width: 100%;
+    height: 60%;
+}
+#gallery_btn{
+    background-color: rgb(12, 12, 53);
+    color: #fff;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    padding:15px 0;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-family: 'Inter', sans-serif;
+    margin: 0 auto;
+}
+.pagination{
+    text-transform: capitalize;
+    font-family: 'Inter', sans-serif;
+    width: 60%;
+    margin:  0 auto;
+}
+.pagination button{
+    padding: 10px 1rem;
+   color: #000;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+.pagination .active{
+    background-color: rgb(23, 23, 91);
+    color: white;
+}
+.pagination span{
+    font-size: 14px;
+    border-radius: 50%;
+    padding: 8px 13px;
+    cursor: pointer;
+}
