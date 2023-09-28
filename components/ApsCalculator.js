@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
 
-
-const ApsCalculator = () => {
+import React, { useState } from 'react';
+import '../syles/ApsCalculator.css'
+import noticeIcon from '../assets/noticeIcon.png'
+const SubjectMarksTable = () => {
   const subjects = [
   
     'HomeLanguge',
@@ -26,11 +27,12 @@ const ApsCalculator = () => {
     // Add more subjects here as needed
 
   ];
-    const marksOptions = ['0-29%', '30-39%', '40-49%','50-59%','60-69%','70-79%','80-100%'];
-    const [total,setTotal] = useState(0);
-  
-  // comenting
-    
+  const marksOptions = ['0-29%', '30-39%', '40-40%', '50-59%', '60-69%', '70-79%', '80-100%'];
+  const [total, setTotal] = useState(0);
+  const [generalMsg,setGeneralMsg] = useState('');
+  const noticeMsg = 'Life Orientation does not count towards your APS, and this specified APS represent the minimum criteria, but it\'s important to understand that meeting these scores doesn\'t guarantee admission to any university program. Different universities may have their unique entry requirements for specific courses, which can vary from one institution to another.'
+
+
   const defaultSubject = 'Choose subject';
   const defaultMark = 'Choose marks';
   const defaultLevel = '0';
@@ -67,141 +69,186 @@ const ApsCalculator = () => {
     Accounting:defaultLevel
   });
 
-  
-    
-    
-    
-  
-  
-    const handleSubjectChange = (subject, event) => {
-      const selectedSubject = event.target.value;
-      const updatedSubjects = { ...selectedSubjects };
-      setSelectedSubjects(updatedSubjects);
-  
 
-      updatedSubjects[subject] = Object.values(selectedSubjects).includes(selectedSubject)
-      ? (alert(`You have already selected ${selectedSubject}`), defaultSubject)
-      : selectedSubject;
 
-    
-    };
+  const handleSubjectChange = (subject, event) => {
+    const selectedSubject = event.target.value;
+    const updatedSubjects = { ...selectedSubjects };
+    setSelectedSubjects(updatedSubjects);
+
+    //prevents subject duplication
+    updatedSubjects[subject] = Object.values(selectedSubjects).includes(selectedSubject)
+    ? (alert(`You have already selected ${selectedSubject}`), defaultSubject)
+    : selectedSubject;
   
-    const handleMarksChange = (subject, event) => {
-      const selectedMark = event.target.value;
-      const updatedMarks = { ...selectedMarks };
-      updatedMarks[subject] = selectedMark;
-      setSelectedMarks(updatedMarks);
-  
-        
+  };
+
+  const handleMarksChange = (subject, event) => {
+    const selectedMark = event.target.value;
+    const updatedMarks = { ...selectedMarks };
+    updatedMarks[subject] = selectedMark;
+    setSelectedMarks(updatedMarks);
+
+    // populate level column base on percentage
     let level = defaultLevel;
-    if (selectedMark === '0-29%') {level = '1';}
-    else if (selectedMark === '30-39%') {level = '2';}
-    else if (selectedMark === '40-40%') {level = '3';}
-    else if (selectedMark === '50-59%') {level = '4';}
-    else if (selectedMark === '60-69%') {level = '5';}
-    else if (selectedMark === '70-79%') {level = '6';}
-    else if (selectedMark === '80-100%') {level = '7';}
-
-   const updatedLevels = { ...selectedLevels };
-   updatedLevels[subject] = level;
-   setSelectedLevels(updatedLevels);
-
-
+     if (selectedMark === '0-29%') {level = '1';}
+     else if (selectedMark === '30-39%') {level = '2';}
+     else if (selectedMark === '40-40%') {level = '3';}
+     else if (selectedMark === '50-59%') {level = '4';}
+     else if (selectedMark === '60-69%') {level = '5';}
+     else if (selectedMark === '70-79%') {level = '6';}
+     else if (selectedMark === '80-100%') {level = '7';}
      
-    };
-  
-    function sumOfLevel(){
-      const selectedMarksValues = Object.values(selectedLevels);
-      const validMarks = selectedMarksValues.filter(
-        (mark) => mark !== defaultLevel
-      );
-      const sum = validMarks.reduce(
-        (accumulator, currentMark) =>
-          accumulator + parseInt(currentMark),
-        0
-      );
-      setTotal(sum)
 
-    };
-  
-  
-    const calculateApsScore = () => {
-      const allSubjectsSelected = Object.values(selectedSubjects).find((unselectedSubject)=>unselectedSubject===defaultSubject);
+    const updatedLevels = { ...selectedLevels };
+    updatedLevels[subject] = level;
+    setSelectedLevels(updatedLevels);
+  };
+
+  function sumOfLevel(){
+    
+    const selectedMarksValues = Object.values(selectedLevels);
+    const validMarks = selectedMarksValues.filter(
+      (mark) => mark !== defaultLevel
+    );
+    const sum = validMarks.reduce(
+      (accumulator, currentMark) =>
+        accumulator + parseInt(currentMark),
+      0
+    );
+    setTotal(sum);
+    displayGeneralMsg(sum)
+
+  };
+
+
+  const calculateAps = () => {
+
+     //condition for marks and subject
+    const allSubjectsSelected = Object.values(selectedSubjects).find((unselectedSubject)=>unselectedSubject===defaultSubject);
     const allLevesSelected = Object.values(selectedLevels).find((unselectedMarks)=>unselectedMarks===defaultLevel)
    
     {(allSubjectsSelected || allLevesSelected) ?  alert('field of subject or marks is required') : sumOfLevel()};
-     
+ 
+  };
+
+  function displayGeneralMsg(aps){
+
+    let message;
+    if (aps < 15) {
+      message = 'National Senior Certificate';
+      setGeneralMsg(message);
    
-    };
+    } else if (aps >= 15 && aps < 19) {
+      message = 'Higher Certificate';
+      setGeneralMsg(message);
+ 
+    } else if (aps >= 19 && aps < 23) {
+      message = 'Diploma';
+      setGeneralMsg(message);
+    
+    } else {
+      message = 'Bachelor\'s Degree';
+      setGeneralMsg(message);
+      
+    }
+
+  }
+
+
   
+
+
   
-  
-  
-    return (
-      <div>
-        
-        <table>
-  
+  return (
+    <div className='mainSection'>
+      <div className='headingWrapper'>
+        <h1 className='heading'>APS SCORE CALCULATOR</h1>
+        <hr/>
+        <p className='paragraph'>Lorem ipsum dolor sit amet consectetur. Blandit sit eget quis orci. In volutpat nunc nisl est ut. Tincidunt mauris felis viverra senectus . Lorem ipsum dolor sit amet consectetur. Blandit sit eget quis orci. In volutpat nunc nisl est ut. Tincidunt mauris felis viverra senectus</p>
+      </div>
+
+
+      <div className='tableContainer'>
+
+        <table className='table'>
           <thead>
-            <tr>
-              <th>Subjects</th>
-              <th>Marks</th>
-              <th>Level</th>
+            <tr className='columnHeading'>
+              <th className='subject'>Subjects</th>
+              <th className='marks'>Marks</th>
+              <th className='level'>Level</th>
             </tr>
           </thead>
-  
-          <tbody>
-            {subjects.map((subject) => (
-              <tr key={subject}>
-  
-                <td>
-                  <select
+
+          <tbody className='kk'>
+            {subjects.slice(0,6).map((subject) => (
+              <tr className='tableDivider' key={subject}>
+                <td className='selectWrapper'>
+
+                  <select className='selectSubject'
                     value={selectedSubjects[subject]}
-                    onChange={(e) => handleSubjectChange(subject, e)}
-                  >
+                    onChange={(e) => handleSubjectChange(subject, e)}>
+
                     <option value={defaultSubject}>{defaultSubject}</option>
-  
+
                     {subjects.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                    
+                  </select>
+        
+
+                </td>
+
+                <td>
+                  <select className='selectMarks'
+                    value={selectedMarks[subject]}
+                    onChange={(e) => handleMarksChange(subject, e)}>
+                    <option value={defaultMark}>{defaultMark}</option>
+                    {marksOptions.map((option) => (
                       <option key={option} value={option}>
                         {option}
                       </option>
                     ))}
                   </select>
                 </td>
-  
-                <td>
-                  <select
-                    value={selectedMarks[subject]}
-                    onChange={(e) => handleMarksChange(subject, e)}>
-  
-                    <option value={defaultMark}>{defaultMark}</option>
-                    {marksOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                    </option>
-  
-                    ))}
-                  </select>
-                </td>
-  
-                <td>
-                  <h5>{selectedLevels[subject]}</h5>
-                </td>
-                
-  
-              </tr>
-  
-            ))}
-          </tbody>
-        </table>
-        <div>
-          <h1>RESULTS</h1>
-  
-          {total}
-        </div>
-        <button onClick={calculateApsScore} >result</button>
-      </div>
-    );
-  };
 
-export default ApsCalculator
+                <div className='levelHolder'>
+                    <h5>{selectedLevels[subject]}</h5>
+                </div>
+                  
+              
+              </tr>
+            ))}
+          
+          </tbody>
+          <button className='resultsBtn' onClick={calculateAps}>CALCULATE</button>
+        </table>
+
+        <div className='massegeContainer'>
+            
+            {/* Results heading div apears only when the total value is not 0 */}
+            {total !== 0 ? (<div className='resultsHeading'> <h1>Results</h1> </div>) : ''}
+        
+            {/* Notice massege div apears only when the total value is not 0 */}
+            {total !== 0 ?  (<div className='resultHolder'>
+            <p>Your APS is <span>{total}</span> and you've obtained <span>{generalMsg}</span> </p>
+                <img src={noticeIcon}/>
+              <p>{total !== 0 ? noticeMsg : ''}</p>
+          
+            </div>) :'' }
+           
+        </div>
+
+    
+
+      </div>
+
+
+    </div>
+  );
+};
+
+export default SubjectMarksTable;
