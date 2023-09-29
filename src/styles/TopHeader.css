@@ -1,4 +1,4 @@
-topheader {
+.topheader {
     position: fixed;
     right: 0;
     top: 0;
@@ -13,9 +13,10 @@ topheader {
 }
 .userlogins {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     list-style: none;
-    gap: 25px;
+    gap: 15px;
 }
 .userlogins li {
     margin-left: 60px;    
@@ -24,7 +25,7 @@ topheader {
     color: white;
     font-weight: 600;
     border-bottom: 2px solid transparent;
-    text-decoration: none; /* Remove underlines from links */
+    text-decoration: none;
     transition: all 0.55s ease;
 }
 .userlogins a:hover {
@@ -33,6 +34,7 @@ topheader {
 
 .Topnavlist {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     list-style: none;
 }
@@ -44,7 +46,7 @@ topheader {
     color: white;
     font-weight: 600;
     border-bottom: 2px solid transparent;
-    text-decoration: none; /* Remove underlines from links */
+    text-decoration: none;
     transition: all 0.55s ease;
 }
 

@@ -1,14 +1,9 @@
-// Header.js
 import React, { useState } from 'react';
-import '../styles/TopHeader.css'; // Import your CSS file
-import '../styles/Header.css';
-import '../styles/Hero.css';
-
+import '../styles/TopHeader.css'; 
 const TopHeader = () => {
-
-
   return (
-    <topheader>
+    //The top Navigation Bar that contains the portal
+    < div className='topheader'>
         <div className='userlogins'>
             <a href="#" className="logo1"><p>--Username--</p></a>
             <a href="#" className="logo1"><p>--EmailAddress--</p></a>
@@ -17,8 +12,8 @@ const TopHeader = () => {
             <li><a href="#">PORTAL</a></li>
             <li><a href="#">SUBSCRIBE</a></li>  
       </ul>
-    </topheader>
+    </div>
   );
 };
-
 export default TopHeader;
+

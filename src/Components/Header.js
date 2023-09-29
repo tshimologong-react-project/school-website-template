@@ -1,20 +1,14 @@
-
 import React, { useState } from 'react';
-import '../styles/Header.css'; // Import your CSS file
-
-
-
+import '../styles/Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   return (
     <header>
       <div className={`burger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-      
+      {/*&#9776;*/}
       </div>
       <ul className={`navlist ${isMenuOpen ? 'open' : ''}`}>
       <li><a href="#">Home</a></li>
@@ -28,5 +22,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

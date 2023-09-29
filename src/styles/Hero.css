@@ -25,9 +25,8 @@ section {
 }
 
 /* Trying too dim the background color */
-.hero::before {
+.hero::after {
     content: "";
-    z-index: -1; 
     position: absolute;
     top: 0;
     left: 0;
@@ -35,9 +34,12 @@ section {
     height: 100%;
     background-color: rgba(128, 0, 0, 0.5);
   }
-
+  .hero-text {
+    position: relative;
+    z-index: 2;
+  }
 .hero-text h1 {
-    
+    text-align: center;
     font-size: 70px;
     line-height: 1;
     color: white;
@@ -45,6 +47,7 @@ section {
 }
 
 .hero-text p {
+    text-align: center;
     color: white;
     font-size: 15px;
     line-height: 1.9;
@@ -133,13 +136,12 @@ section {
     #menu-icon {
         display: block;
     }
-
     .navlist {
         position: absolute;
         top: 100%;
         right: -100%;
         width: 300px;
-        height: 40vh;
+        min-height: 40vh;
         background: maroon;
         display: flex;
         align-items: center;
@@ -147,18 +149,14 @@ section {
         padding: 50px 20px;
         transition: all 0.55s ease;
     }
-
     .navlist a {
         margin-left: 0;
         display: block;
         margin: 8px 0;
     }
-
     .navlist.open {
         right: 0;
     }
 }
-
-@media (max-width: 680px) {
-    
+@media (max-width: 680px) {   
 }
