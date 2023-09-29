@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./src/**/*.{html,js,tsx,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ['Inter', 'sans-serif'], // Replace 'Your Custom Font' with the actual font name
+      },
+      
+    },
   },
+  variants: {},
   plugins: [],
 }

@@ -10,13 +10,13 @@ const Blog = ({ blogPosts }) => {
   };
 
   return (
-    <section className="bg-gray-100 p-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold text-red-800 mb-4 py-2 justify-center text-center">Blogs</h2>
+    <section className="bg-gray-100 p-6 py-24">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-2xl font-semibold text-red-800 py-2 justify-center text-center">Blogs</h2>
         <div class="flex items-center justify-center py-2">
           <div class="border-t-2 border-red-800 w-16"></div>
         </div>
-        <p className='text-center text-black font-small py-2'>Lorem ipsum dolor sit amet consectetur. Lorem donec interdum elit sit porttitor et consequat. 
+        <p className='w-4/5 mx-auto text-center text-black font-smaller mt-6 mb-8'>Lorem ipsum dolor sit amet consectetur. Lorem donec interdum elit sit porttitor et consequat. 
           Urna ullamcorper suspendisse auctor lorem diam quis. Adipiscing donec ultrices at et non sed.</p>
         <div className='border-red-800 w-full rounded-md'></div>
         <div className="flex flex-wrap -mx-4 py-2">
