@@ -11,6 +11,7 @@ import img3 from "../assets/IMG3.JPG";
 import img4 from "../assets/IMG4.JPG";
 import img5 from "../assets/IMG5.JPG";
 import img6 from "../assets/IMG6.JPG";
+import img7 from "../assets/hero-img4.jpg";
 
 function GalleryPage() {
   /* Global variables */
@@ -21,7 +22,7 @@ function GalleryPage() {
     img2,
     img3,
     img4,
-    img5,
+    img7,
     img6,
     img1,
     img2,
@@ -29,7 +30,7 @@ function GalleryPage() {
     img4,
     img5,
     img6,
-    img2,
+    img7,
   ];
 
   // buttons state
@@ -39,7 +40,7 @@ function GalleryPage() {
   // variables to determine image array length
   const imageLength = Images.length;
   // variables to determine number of images to display
-  const imageNumber = Math.round(imageLength / 4);
+  const imageNumber = Math.round(imageLength / 6);
   console.log(imageNumber);
   // variable to hold button index
   let buttonIndex = [1];
@@ -55,7 +56,8 @@ function GalleryPage() {
 
   // useEffect to call createPaginationBtns function
   useEffect(() => {
-    createPaginationBtns();
+    createPaginationBtns();  
+    imageFun(1);   
   }, []);
 
   // function to slice images for for display
@@ -68,15 +70,14 @@ function GalleryPage() {
   function imageFun(index) {
     buttonIndex = index;
     let k = index - 1;
-    let m = 4;
+    let m = 6;
     let n = 0;
-    const first = n + 4 * k;
-    const last = m + 4 * k;
+    const first = n + 6 * k;
+    const last = m + 6 * k;
     // call image slicer function
     imageSlicer(first, last);
     console.log(first, last);
   }
-
   // fucntion to change index for next and prev buttons
   function changeIndex(buttonName) {
     if (buttonName === "prev") {
@@ -111,10 +112,10 @@ function GalleryPage() {
                     <img src={slicedImages[5]} alt=""/>
                 </div>
             </div>
-            <div class="pagination">
+            <div className="pagination">
               <button onClick={() => changeIndex("prev")}>prev</button>
               {buttons.map((button, id) => (
-                  <span key={id} onClick={() => imageFun(button)}>
+                  <span  key={id} onClick={() => imageFun(button)}>
                   {button}
                   </span>
               ))}
