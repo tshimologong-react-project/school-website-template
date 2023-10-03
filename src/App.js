@@ -1,15 +1,14 @@
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Hero from './components/Hero';
-import About from './components/About';
-//import Gallery from './components/Gallery';
-import ApsCalculator from  './components/ApsCalculator'
-import GalleryPage from  './components/GalleryPage';
+import Header from './Components/Header.js';
+import About from './Components/About';
+import Gallery from './Components/Gallery';
+import ApsCalculator from  './Components/ApsCalculator'
 
-import Blog from './components/Blog';
-import BlogPage from './components/BlogPage';
-import AllBlogPage from './components/AllBlogPage';
-import Footer from './components/Footer';
+import Blog from './Components/Blog';
+import BlogPage from './Components/BlogPage';
+import AllBlogPage from './Components/AllBlogPage';
+import Footer from './Components/Footer';
 
 // Blog images
 import img1 from './assets/IMG1.JPG';
@@ -49,7 +48,7 @@ const blogPosts = [
 function App() {
   return (
     <div className="App">
-      <Hero />
+      <Header />
       <About/>
       <Router>
         <Routes>
@@ -58,7 +57,7 @@ function App() {
           <Route path="/all-posts" element={<AllBlogPage blogPosts={blogPosts} />} />
         </Routes>
       </Router>
-      <GalleryPage/>
+      <Gallery/>
       <ApsCalculator/>
       <Footer/>
     </div>
