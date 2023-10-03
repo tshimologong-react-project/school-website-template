@@ -4,9 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Inter', 'sans-serif'], // Replace 'Your Custom Font' with the actual font name
-      },
-      
+        custom: ['Poppins', 'sans-serif'], // Replace 'Your Custom Font' with the actual font name
+      },      
     },
   },
   variants: {},
