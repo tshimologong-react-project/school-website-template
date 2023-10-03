@@ -270,8 +270,8 @@ const ApsCalculator = () => {
                 </table>
                 
                 <div className='btnContainer'>
-                    <button className='resultsBtn' onClick={calculateAps}>CALCULATE</button>
-                    <button className='resetBtn' onClick={handleReset} >RESET</button>
+                    <button className='resultsBtn' onClick={calculateAps}>Calculate</button>
+                    <button className='resetBtn' onClick={handleReset} >Reset</button>
                 </div>
               </div>
             
