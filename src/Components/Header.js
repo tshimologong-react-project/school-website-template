@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
 import '../styles/Header.css';
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+import Topnav from './Topnav';
+import Navbar from './Navbar';
+
+function Header() {
   return (
-    <header>
-      <div className={`burger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-      {/*&#9776;*/}
+    <>
+      <Topnav /> 
+      <div className="Header-section">
+        <Navbar />
+        <div className="container">
+          <div className="header_text">
+            <span>Welcome to our innovatie high school</span>
+            <h1>Welcome to Sebitja Secondary School</h1>
+            <p>Lorem ipsum dolor sit amet consectetur 
+              adipisicing elit. Illum, quam? Rem totam
+               deleniti autem! Cupiditate ab repellat 
+              consequuntur tempore.
+            </p>
+          </div>
+          <i id="Down-Arrow-Btn">+</i>
+        </div>
       </div>
-      <ul className={`navlist ${isMenuOpen ? 'open' : ''}`}>
-      <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">APS CALCULATOR</a></li>
-        <li><a href="#" className="logo">LOGO</a></li>
-        <li><a href="#">GALLERY</a></li>
-        <li><a href="#">CONTACT US</a></li>
-        <li><a href="#">BLOG</a></li>
-      </ul>
-    </header>
-  );
-};
-export default Header;
+    </>
+  )
+}
+
+export default Header
