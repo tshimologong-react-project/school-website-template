@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header.js';
 import About from './Components/About';
 import Gallery from './Components/Gallery';
-import ApsCalculator from  './Components/ApsCalculator'
+import ApsCalculator from  './Components/ApsCalculator';
+import Auth from './firebase-config/Auth.js';
+
 
 import Blog from './Components/Blog';
 import BlogPage from './Components/BlogPage';
@@ -49,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Auth/>
       <About/>
       <Router>
         <Routes>
