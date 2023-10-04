@@ -1,28 +1,34 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import {db} from './firebase'
 import {collection,getDocs} from 'firebase/firestore';
 
 
 function Auth() {
+  // change state
+  const [users, setUsers] = useState([]);
+// change collection to your collection
+  const userCollectionRef= collection(db,"employee");
 
-  // const test =()=>{
-  //   databaseRef.on('value',snapshot =>{
-  //     console.log(snapshot.val())
-  //   } )
-  // }
-  const userCollectionRef=collection(db,"employee");
+  // 
   useEffect(() => {
-   const findUser = async ()=>{
-    const data = await getDocs(userCollectionRef);
-    console.log(data.docs.key)
-    
-   }
+   const fetchData = async ()=>{
+    try{
+      const data = await getDocs(userCollectionRef);
+      if(data.docs){
+        setUsers((data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))))
+      }else{
+        console.log('error connection')
+      }
+    }catch(error){
+      console.error(error)
+    }
 
-   findUser() ;
+   }
+   fetchData();
+   
   }, []);
+  console.log(users)
   
-  
-    
   return (
     <div><button  >send data</button></div>
   )
